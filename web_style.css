@@ -1,34 +1,39 @@
-/* CSS FILE */
-
 /* Global Styles */
 * {
     box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth 0.3s ease-in-out;
 }
 
 body {
+    background-image: url('assets/bg-img.jpg'), radial-gradient(circle at 50% 10%, violet, rgb(0, 0, 85));
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-position: center;
+    background-blend-mode: multiply;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     font-family: 'Roboto', Arial, sans-serif;
-}
-
-/* For Scrolling and Animations */
-#home, #aboutme, #projects, #contacts {
-    will-change: opacity; 
+    animation: slideBackground 30s infinite ease-in-out;
 }
 
 /* NavBar Section */
 .navbar {
-    background-color: #172029;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.35);
+    border-bottom: 2px solid white;
 }
 
 nav .navbar-brand {
     border-radius: 5px;
-    color: #ECF0F1;
+    color: white;
     font-size: 20px;
     padding: 8px 12px;
     text-decoration: none;
@@ -36,25 +41,26 @@ nav .navbar-brand {
 }
 
 nav .navbar-brand:hover {
-    background-color: #ECF0F1;
+    background-color: white;
     color: #000;
 }
 
 #navbar-toggler {
-    background-color: #ECF0F1;
+
+    border: 2px solid white;
     border-radius: 10px;
     padding: 8px 12px;
     font-size: 12px;
 }
 
 .navbar .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='black' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 .nav-link.btn {
     display: inline-block;
     padding: 8px 16px;
-    color: #ECF0F1;
+    color: white;
     text-decoration: none;
     text-align: center;
     font-size: 16px;
@@ -62,14 +68,14 @@ nav .navbar-brand:hover {
 }
 
 .nav-link.btn:hover {
-    background-color: #ECF0F1;
+    background-color: white;
     color: #000;
 }
 
 /* Home Section */
 #home {
-    background-color: #34495E;
-    color: #ECF0F1;
+
+    color: white;
     min-height: 100vh; /* Changed to min-height */
     display: flex;
     align-items: center;
@@ -84,19 +90,20 @@ nav .navbar-brand:hover {
 }
 
 #home .btn {
-    background-color: #172029;
-    color: #ECF0F1;
+    background-color: white;
+    color: black;
     border-radius: 5px;
     padding: 10px 16px;
     text-decoration: none;
     text-align: center;
-    font-size: 18px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease-in-out;
 }
 
 #home .btn:hover {
-    background-color: #ECF0F1;
+    background-color: white;
     color: #000;
+    transform: scale(1.20);
 }
 
 /* About Section */
@@ -104,24 +111,28 @@ nav .navbar-brand:hover {
     display: flex;
     justify-content: center;
     padding: 32px 16px;
-    margin-top: 32px; /* Replaced transform */
+    margin: 0;
 }
 
 #aboutme h1 {
-    font-size: 48px;
+    color: white;
+    font-size: 56px;
     font-weight: bold;
     text-align: center;
 }
 
 #aboutmecontainer {
+    background-color: white;
+    color: black;
     display: flex;
     align-items: center;
     justify-content: center;
     scroll-margin-top: 70px;
 }
 
-#abouttext-left h5, #abouttext-right h5 {
-    font-size: 16px;
+#abouttext-left h5, #aboutimage-center, #abouttext-right h5 {
+    color: black;
+    font-size: 20px;
 }
 
 /* Projects Section */
@@ -132,9 +143,15 @@ nav .navbar-brand:hover {
 }
 
 #projects h1 {
+    color: white;
     font-size: 48px;
     font-weight: bold;
     text-align: center;
+}
+
+.card-body {
+    width: 250px;
+    height: 350px;
 }
 
 .card-text {
@@ -146,19 +163,27 @@ nav .navbar-brand:hover {
     display: flex;
     justify-content: center;
     padding: 32px 16px;
-    margin-top: 16px; /* Replaced transform */
 }
 
 #contacts h1 {
+    color: white;
     font-size: 48px;
     font-weight: bold;
     text-align: center;
 }
 
 .contact-form-wrapper {
-    max-width: 80%;
+    max-width: 90%;
     width: 600px;
-    padding: 16px;
+    padding: 8px 16px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.35);
+    border-radius: 8px;
+    color: black;
+}
+
+.contact-form-wrapper .btn {
+
 }
 
 #message {
@@ -171,9 +196,11 @@ textarea.form-control {
 
 /* Footer Section */
 footer {
-    background-color: #172029;
-    color: #ECF0F1;
+    border-top: 2px solid white;
+    color: white;
     padding: 16px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.35);
 }
 
 footer p {
@@ -183,17 +210,45 @@ footer p {
 
 /* Mobile Adjustments */
 @media (max-width: 992px) {
-    .navbar-nav {
+    .navbar-brand {
+        font-size: 20px;
+    }
+
+    .navbar {
+        padding: 8px 16px;
+        margin: 0;
+    }
+
+    .navbar-collapse .navbar-nav {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap;
+        justify-content: start;
+        gap: 16px;
         text-align: center;
-        padding: 16px 0;
+        padding: 16px;
     }
 
     .navbar-nav .nav-item {
-        margin: 8px 0;
+        font-size: 16px;
+        margin: 0; 
     }
 
-    .entry-container h1 {
-        font-size: 32px;
+    .nav-link.btn {
+        font-size: 14px;
+        margin: 0;
+        padding: 16px;
+        display: inline-block;
+    }
+
+    #home h1 {
+        font-size: 64px;
+        padding: 8px 16px;
+    }
+
+    #home .btn {
+        font-size: 18px;
+        padding: 8px 16px;
     }
 
     #aboutmecontainer {
@@ -237,24 +292,48 @@ footer p {
 
 @media (max-width: 576px) {
     .navbar-brand {
-        font-size: 19px;
+        font-size: 18px;
     }
 
     .navbar {
+        padding: 8px 8px;
+        margin: 0;
+    }
+
+    .navbar-collapse .navbar-nav {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap;
+        justify-content: start;
+        gap: 8px;
+        text-align: center;
+        padding: 8px;
+    }
+
+    .navbar-nav .nav-item {
+        font-size: 16px;
+        margin: 0; 
+    }
+
+    .nav-link.btn {
+        font-size: 12px;
+        margin: 0;
+        padding: 8px;
+        display: inline-block;
+    }
+
+    #home h1 {
+        font-size: 50px;
         padding: 8px 16px;
     }
 
-    .entry-container h1 {
-        font-size: 24px;
-    }
-
-    .entry-container .btn {
+    #home .btn {
         font-size: 14px;
         padding: 8px 16px;
     }
 
     .aboutme h1, .projects h1, .contact h1 {
-        font-size: 29px;
+        font-size: 30px;
     }
 
     .card-img-top {
@@ -262,14 +341,30 @@ footer p {
     }
 
     .contact-form-wrapper {
-        padding: 16px;
+        padding: 8px 4px;
     }
 
     .form-floating label {
-        font-size: 13px;
+        font-size: 14px;
+    }
+    
+    #message {
+        min-height: 100px;
     }
 
     footer p {
-        font-size: 13px;
+        font-size: 14px;
+    }
+}
+
+@keyframes slideBackground {
+    0% {
+        background-position: 0% center;
+    }
+    50% {
+        background-position: 100% center;
+    }
+    100% {
+        background-position: 0% center;
     }
 }
